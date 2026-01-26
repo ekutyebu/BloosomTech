@@ -6,7 +6,7 @@ BloomTech is more than a landing page—it's a statement of engineering excellen
 
 ## Key Features
 *   **Premium UI/UX:** A "Professional Design" aesthetic that balances soft tones with sharp, professional layouts.
-*   **Interactive Tabs:** Real-time track switching with Framer Motion animations.
+*   **Interactive Tabs:** Real-time track switching with Framer Motion 12 animations.
 *   **Scroll-Driven Storytelling:** Section reveals that guide the user through the BloomTech mission.
 *   **Responsive Architecture:** Fully optimized for all device viewports.
 
@@ -15,8 +15,8 @@ BloomTech is more than a landing page—it's a statement of engineering excellen
 *   **Mbakwa Blessing** - BTech CSE 2
 
 ## Tech Stack
-*   **Core:** React 19 (Pinned for Stability)
+*   **Core:** React 19
 *   **Styling:** Tailwind CSS
 *   **Icons:** Lucide React
-*   **Animation:** Framer Motion
+*   **Animation:** Framer Motion 12
 *   **Infrastructure:** ESM.sh (Module Resolution)
