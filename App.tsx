@@ -64,7 +64,7 @@ const ENGINEERS = [
   },
   {
     name: "Mbakwa Blessing",
-    role: "Lead Design Strategist",
+    role: "Lead UI/UX Strategist",
     specialty: "UX & Product Systems",
     bio: "Dedicated to creating digital spaces that are as functional as they are beautiful.",
     img: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=400"
@@ -74,7 +74,7 @@ const ENGINEERS = [
     role: "Lead Frontend Architect",
     specialty: "Web Applications & UI Performance",
     bio: "Expert in crafting high-performance, accessible, and elegantly designed web experiences.",
-    img: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=400"
+    img: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=400"
   }
 ];
 

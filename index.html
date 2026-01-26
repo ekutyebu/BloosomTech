@@ -15,11 +15,17 @@
             --charcoal: #374151;
         }
 
+        html, body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--primary-blossom);
+            min-height: 100%;
+        }
+
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
             scroll-behavior: smooth;
             overflow-x: hidden;
-            background-color: var(--primary-blossom);
             color: var(--charcoal);
         }
 
@@ -88,6 +94,6 @@
 </head>
 <body class="custom-scrollbar">
     <div id="root"></div>
-    <script type="module" src="/index.tsx"></script>
+    <script type="module" src="index.tsx"></script>
 </body>
 </html>
