@@ -20,8 +20,7 @@ import {
   Globe,
   Layers,
   Heart,
-  Star,
-  Navigation
+  Star
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -75,7 +74,7 @@ const ENGINEERS = [
     role: "Lead Frontend Architect",
     specialty: "Web Applications & UI Performance",
     bio: "Expert in crafting high-performance, accessible, and elegantly designed web experiences.",
-    img: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=400"
+    img: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=400"
   }
 ];
 
@@ -477,7 +476,7 @@ const Footer = () => (
 );
 
 const App = () => (
-  <div className="bg-white selection:bg-pink-100 selection:text-pink-600">
+  <div className="bg-[#FDF2F8] selection:bg-pink-100 selection:text-pink-600 min-h-screen">
     <Navbar />
     <Hero />
     
