@@ -28,27 +28,27 @@ const TRACKS = [
   {
     id: 'frontend',
     title: "Frontend Mastery",
-    desc: "Architect seamless digital interfaces using the latest React 19 methodologies. Focus on performance, aesthetics, and user delight.",
+    desc: "Architect seamless digital interfaces using React 19. Focus on performance, aesthetics, and user delight with high-fidelity components.",
     icon: Code2,
-    color: "from-rose-400 to-pink-600",
+    color: "from-rose-300 to-pink-500",
     skills: ['React 19 & Hooks', 'Motion Design', 'Performance Tuning', 'TypeScript Mastery'],
     image: "https://images.unsplash.com/photo-1547658719-da2b51169166?auto=format&fit=crop&q=80&w=800"
   },
   {
     id: 'design',
     title: "Experience Strategy",
-    desc: "Bridge the gap between vision and reality. Learn the psychological principles that drive successful product design.",
+    desc: "Bridge vision and reality. Learn the psychological principles that drive successful product design and elegant user journeys.",
     icon: Palette,
-    color: "from-pink-500 to-fuchsia-600",
+    color: "from-pink-400 to-fuchsia-500",
     skills: ['User Research', 'Figma Systems', 'Prototyping', 'Accessibility'],
     image: "https://images.unsplash.com/photo-1586717791821-3f44a563eb4c?auto=format&fit=crop&q=80&w=800"
   },
   {
     id: 'backend',
     title: "Core Infrastructure",
-    desc: "Build the robust systems that power global applications. Learn scalability, data architecture, and cloud security.",
+    desc: "Build the robust systems that power global applications. Learn scalability, data architecture, and secure cloud environments.",
     icon: Cpu,
-    color: "from-indigo-400 to-rose-500",
+    color: "from-indigo-300 to-rose-400",
     skills: ['Node.js & Go', 'PostgreSQL', 'Cloud Architecture', 'API Security'],
     image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc48?auto=format&fit=crop&q=80&w=800"
   }
@@ -59,14 +59,14 @@ const ENGINEERS = [
     name: "Ekuty Ebu",
     role: "Lead Software Architect",
     specialty: "Backend & Systems",
-    bio: "Passionate about building highly available systems and mentoring the next wave of engineers.",
+    bio: "Passionate about building highly available systems and mentoring the next wave of engineering talent.",
     img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400"
   },
   {
     name: "Mbakwa Blessing",
     role: "Lead UI/UX Strategist",
     specialty: "UX & Product Systems",
-    bio: "Dedicated to creating digital spaces that are as functional as they are beautiful.",
+    bio: "Dedicated to creating digital spaces that are as functional as they are beautiful and user-centric.",
     img: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=400"
   },
   {
@@ -100,7 +100,7 @@ const Navbar = () => {
       <div className={`max-w-7xl mx-auto px-6 transition-all duration-500 ${isScrolled ? 'glass rounded-full shadow-lg max-w-5xl' : ''}`}>
         <div className="flex justify-between items-center h-16">
           <a href="#" className="flex items-center space-x-3 group">
-            <div className="w-12 h-12 bg-gradient-to-br from-pink-500 to-rose-600 rounded-2xl flex items-center justify-center text-white shadow-xl group-hover:rotate-12 transition-transform duration-500">
+            <div className="w-12 h-12 bg-gradient-to-br from-pink-500 to-rose-500 rounded-2xl flex items-center justify-center text-white shadow-xl group-hover:rotate-12 transition-transform duration-500">
               <Heart size={24} fill="currentColor" />
             </div>
             <span className="text-2xl font-serif font-bold tracking-tight text-gray-900 group-hover:text-pink-600 transition-colors">BloomTech</span>
@@ -116,7 +116,7 @@ const Navbar = () => {
                 {item.name}
               </a>
             ))}
-            <button className="px-8 py-3 bg-gray-900 text-white text-[10px] font-black uppercase tracking-widest rounded-full hover:bg-pink-600 transition-all shadow-xl shadow-gray-100 transform hover:-translate-y-0.5">
+            <button className="px-8 py-3 bg-gray-900 text-white text-[10px] font-black uppercase tracking-widest rounded-full hover:bg-pink-600 transition-all shadow-xl transform hover:-translate-y-0.5">
               Join Cohort
             </button>
           </div>
@@ -168,7 +168,7 @@ const Hero = () => {
               className="inline-flex items-center gap-3 bg-white border border-pink-100 px-6 py-3 rounded-full text-pink-600 text-[10px] font-black tracking-[0.2em] uppercase mb-12 shadow-sm"
             >
               <Sparkles size={16} className="animate-spin-slow" />
-              Where Engineering Meets Elegance
+              Engineering Professionalism & Grace
             </motion.div>
             
             <motion.h1 
@@ -185,7 +185,7 @@ const Hero = () => {
               transition={{ delay: 0.2 }}
               className="text-xl text-gray-500 mb-14 max-w-xl mx-auto lg:mx-0 leading-relaxed font-medium"
             >
-              A premier internship initiative blending high-performance engineering with a sophisticated design aesthetic. Elevate your career with our lead project architects.
+              A premier internship initiative blending high-performance engineering with a sophisticated blossom-themed design. Elevate your career with our project architects.
             </motion.p>
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
@@ -211,7 +211,7 @@ const Hero = () => {
             <div className="relative z-10 rounded-[4rem] overflow-hidden border-[12px] border-white shadow-2xl aspect-[4/5] lg:aspect-auto">
               <img 
                 src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=800" 
-                alt="Collaboration" 
+                alt="Architect Collaboration" 
                 className="w-full h-full lg:h-[650px] object-cover hover:scale-105 transition-transform duration-1000"
               />
             </div>
@@ -321,7 +321,7 @@ const ArchitectsSection = () => (
         <p className="text-gray-400 text-lg font-medium tracking-widest uppercase">The visionaries behind BloomTech</p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 max-w-7xl mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
         {ENGINEERS.map((engineer, idx) => (
           <motion.div 
             key={engineer.name}
@@ -357,55 +357,6 @@ const ArchitectsSection = () => (
   </section>
 );
 
-const BenefitsSection = () => (
-  <section id="benefits" className="py-40 bg-white">
-    <div className="max-w-7xl mx-auto px-6">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
-        <motion.div 
-          initial={{ opacity: 0, x: -30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-        >
-          <h2 className="text-5xl md:text-7xl font-serif font-bold text-gray-900 mb-16 leading-[1.1]">
-            Experience <br /><span className="text-pink-600 italic">Prestige</span> <br />in Every Line.
-          </h2>
-          <div className="space-y-12">
-            {[
-              { title: "Direct Mentorship", icon: Award, desc: "Personalized guidance from our lead architects to refine your professional presence." },
-              { title: "Career Placement", icon: Globe, desc: "Exclusive access to a global network of premium tech firm placements." },
-              { title: "Project Ownership", icon: Layers, desc: "Real-world SDLC responsibility on high-scale architectural decisions." }
-            ].map((b, i) => (
-              <div key={i} className="flex gap-8 items-start">
-                <div className="w-16 h-16 bg-pink-50 rounded-2xl flex items-center justify-center flex-shrink-0 text-pink-500 border border-pink-100">
-                  <b.icon size={28} />
-                </div>
-                <div>
-                  <h4 className="text-2xl font-bold text-gray-900 mb-2">{b.title}</h4>
-                  <p className="text-gray-500 text-lg font-medium leading-relaxed">{b.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </motion.div>
-        <div className="relative">
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            className="rounded-[4rem] overflow-hidden shadow-2xl aspect-[3/4]"
-          >
-            <img 
-              src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&q=80&w=800" 
-              className="w-full h-full object-cover" 
-              alt="Engineers" 
-            />
-          </motion.div>
-        </div>
-      </div>
-    </div>
-  </section>
-);
-
 const Footer = () => (
   <footer className="bg-[#111827] text-gray-400 pt-32 pb-16">
     <div className="max-w-7xl mx-auto px-6">
@@ -418,7 +369,7 @@ const Footer = () => (
             <span className="text-3xl font-serif font-bold text-white tracking-tight">BloomTech</span>
           </div>
           <p className="mb-10 text-gray-400 text-lg font-medium leading-relaxed">
-            The gold standard in technical internships. Redefining what it means to be a professional in the digital age.
+            The gold standard in technical internships. Redefining professional excellence for the digital era.
           </p>
           <div className="flex gap-5">
              {[Instagram, Twitter, Linkedin, Github].map((Icon, idx) => (
@@ -450,7 +401,7 @@ const Footer = () => (
         </div>
 
         <div>
-          <h5 className="text-white font-black uppercase text-[10px] tracking-[0.3em] mb-10">Location</h5>
+          <h5 className="text-white font-black uppercase text-[10px] tracking-[0.3em] mb-10">Contact</h5>
           <div className="space-y-8 text-sm font-bold">
              <div className="flex gap-4 items-start">
                 <Mail size={20} className="text-pink-500 flex-shrink-0" />
@@ -465,7 +416,7 @@ const Footer = () => (
       </div>
 
       <div className="border-t border-white/5 pt-12 flex flex-col md:flex-row justify-between items-center text-[10px] font-black uppercase tracking-[0.3em] text-gray-500">
-        <p>© {new Date().getFullYear()} BloomTech. Curated by our project architects.</p>
+        <p>© {new Date().getFullYear()} BloomTech. Curated by Lead Architects.</p>
         <div className="flex gap-8 mt-6 md:mt-0">
            <a href="#" className="hover:text-white transition-colors">Terms</a>
            <a href="#" className="hover:text-white transition-colors">Accessibility</a>
@@ -489,7 +440,7 @@ const App = () => (
           className="max-w-4xl mx-auto"
         >
           <h2 className="text-4xl md:text-6xl font-serif font-bold text-gray-900 leading-[1.2] mb-10">
-            "Technical brilliance is mandatory; <span className="text-pink-600 italic">design elegance</span> is what makes it timeless."
+            "Technical brilliance is mandatory; <span className="text-pink-600 italic">design elegance</span> is what makes it professional."
           </h2>
           <div className="flex items-center justify-center gap-6 mb-24">
              <div className="w-12 h-0.5 bg-pink-100"></div>
@@ -501,8 +452,8 @@ const App = () => (
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
            {[
              { title: "Rigorous Training", icon: CheckCircle2, desc: "A curriculum designed to challenge even the most ambitious technical minds." },
-             { title: "Real-world SDLC", icon: Layers, desc: "Experience the full lifecycle from ideation to production deployment." },
-             { title: "Global Alumnae", icon: Globe, desc: "Join an elite community of leaders across top-tier technical firms." }
+             { title: "Real-world SDLC", icon: Layers, desc: "Experience the full lifecycle from conceptualization to global production." },
+             { title: "Global Alumnae", icon: Globe, desc: "Join an elite community of leaders across world-class technology firms." }
            ].map((item, i) => (
              <motion.div 
                key={i}
@@ -525,8 +476,54 @@ const App = () => (
 
     <TracksSection />
     <ArchitectsSection />
-    <BenefitsSection />
     
+    <section id="benefits" className="py-40 bg-white">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
+          <motion.div 
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-5xl md:text-7xl font-serif font-bold text-gray-900 mb-16 leading-[1.1]">
+              Experience <br /><span className="text-pink-600 italic">Prestige</span> <br />in Every Line.
+            </h2>
+            <div className="space-y-12">
+              {[
+                { title: "Architect Mentorship", icon: Award, desc: "Personalized guidance from our lead architects to refine your professional presence." },
+                { title: "Premium Placement", icon: Globe, desc: "Exclusive access to a global network of high-tier technical placements." },
+                { title: "System Responsibility", icon: Layers, desc: "Real-world SDLC responsibility on high-scale architectural decisions." }
+              ].map((b, i) => (
+                <div key={i} className="flex gap-8 items-start">
+                  <div className="w-16 h-16 bg-pink-50 rounded-2xl flex items-center justify-center flex-shrink-0 text-pink-500 border border-pink-100">
+                    <b.icon size={28} />
+                  </div>
+                  <div>
+                    <h4 className="text-2xl font-bold text-gray-900 mb-2">{b.title}</h4>
+                    <p className="text-gray-500 text-lg font-medium leading-relaxed">{b.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+          <div className="relative">
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              className="rounded-[4rem] overflow-hidden shadow-2xl aspect-[3/4]"
+            >
+              <img 
+                src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&q=80&w=800" 
+                className="w-full h-full object-cover" 
+                alt="Engineering Excellence" 
+              />
+            </motion.div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section className="py-40">
       <div className="max-w-6xl mx-auto px-6">
          <motion.div 
@@ -538,14 +535,14 @@ const App = () => (
            <div className="absolute top-0 right-0 w-1/2 h-full bg-pink-600/10 -z-10 blur-3xl"></div>
            <h2 className="text-5xl md:text-8xl font-serif font-bold mb-12 leading-tight">Your Legacy <br /><span className="gradient-text italic opacity-90">Starts Here</span>.</h2>
            <p className="text-xl text-gray-400 mb-16 max-w-xl mx-auto font-medium leading-relaxed">
-             Join our next cohort of architects. Applications for Summer 2025 are now being accepted.
+             Join our next cohort of architects. Applications for 2025 are now open for evaluation.
            </p>
            <div className="flex flex-col sm:flex-row gap-8 justify-center items-center">
              <button className="px-12 py-6 bg-pink-600 text-white rounded-full font-black uppercase tracking-[0.2em] text-[10px] hover:scale-105 transition-transform shadow-2xl">
                 Apply for Internship
              </button>
              <button className="flex items-center gap-3 font-black uppercase text-[10px] tracking-[0.2em] border-b border-white/20 pb-2 hover:border-pink-500 transition-all">
-                The Selection Process <ArrowRight size={16} />
+                Selection Process <ArrowRight size={16} />
              </button>
            </div>
          </motion.div>
