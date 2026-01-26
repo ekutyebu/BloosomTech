@@ -1,8 +1,7 @@
-
 # BloomTech | Premium Tech Internship Portal
 
 ## Project Vision
-BloomTech is more than a landing page—it's a statement of engineering excellence. Conceived and built by **Ekuty Ebu** and **Mbakwa Blessing**, this platform serves as the premier entry point for the next generation of tech talent.
+BloomTech is more than a landing page—it's a statement of engineering excellence. Conceived and built by **Ekuty Ebu**, **Mbakwa Blessing**, and **Bihneh Nelly**, this platform serves as the premier entry point for the next generation of tech talent.
 
 ## Key Features
 *   **Premium UI/UX:** A "Professional Design" aesthetic that balances soft tones with sharp, professional layouts.
@@ -13,6 +12,7 @@ BloomTech is more than a landing page—it's a statement of engineering excellen
 ## Engineering Team
 *   **Ekuty Ebu** - BTech CSE 2
 *   **Mbakwa Blessing** - BTech CSE 2
+*   **Bihneh Nelly** - BTech CSE 2
 
 ## Tech Stack
 *   **Core:** React 19

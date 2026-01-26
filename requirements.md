@@ -1,4 +1,3 @@
-
 # Requirement Analysis: BloomTech Internship Program
 
 ## 1. Project Overview
@@ -7,6 +6,7 @@
 ## 2. Lead Project Architects
 *   **Ekuty Ebu:** Lead Software Architect (Backend & Cloud Infrastructure)
 *   **Mbakwa Blessing:** Lead UI/UX Strategist (Design Systems & User Experience)
+*   **Bihneh Nelly:** Lead Frontend Architect (Web Applications & UI Performance)
 
 ## 3. Core Functional Requirements
 1.  **Immersive Track Selection:** Interactive UI to explore Frontend, Design, and Backend curricula.
