@@ -5,7 +5,7 @@
 BloomTech is more than a landing page—it's a statement of engineering excellence. Conceived and built by **Ekuty Ebu** and **Mbakwa Blessing**, this platform serves as the premier entry point for the next generation of tech talent.
 
 ## Key Features
-*   **Premium UI/UX:** A "Professional Girlish" aesthetic that balances soft tones with sharp, professional layouts.
+*   **Premium UI/UX:** A "Professional Design" aesthetic that balances soft tones with sharp, professional layouts.
 *   **Interactive Tabs:** Real-time track switching with Framer Motion animations.
 *   **Scroll-Driven Storytelling:** Section reveals that guide the user through the BloomTech mission.
 *   **Responsive Architecture:** Fully optimized for all device viewports.
