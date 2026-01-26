@@ -1,11 +1,22 @@
-<div align="center">
 
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+# BloomTech | Premium Tech Internship Portal
 
-  <h1>Built with AI Studio</h2>
+## Project Vision
+BloomTech is more than a landing page—it's a statement of engineering excellence. Conceived and built by **Ekuty Ebu** and **Mbakwa Blessing**, this platform serves as the premier entry point for the next generation of tech talent.
 
-  <p>The fastest path from prompt to production with Gemini.</p>
+## Key Features
+*   **Premium UI/UX:** A "Professional Girlish" aesthetic that balances soft tones with sharp, professional layouts.
+*   **Interactive Tabs:** Real-time track switching with Framer Motion animations.
+*   **Scroll-Driven Storytelling:** Section reveals that guide the user through the BloomTech mission.
+*   **Responsive Architecture:** Fully optimized for all device viewports.
 
-  <a href="https://aistudio.google.com/apps">Start building</a>
+## Engineering Team
+*   **Ekuty Ebu** - BTech CSE 2
+*   **Mbakwa Blessing** - BTech CSE 2
 
-</div>
+## Tech Stack
+*   **Core:** React 19 (Pinned for Stability)
+*   **Styling:** Tailwind CSS
+*   **Icons:** Lucide React
+*   **Animation:** Framer Motion
+*   **Infrastructure:** ESM.sh (Module Resolution)
