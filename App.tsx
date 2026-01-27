@@ -30,7 +30,7 @@ const TRACKS = [
     title: "Frontend Mastery",
     desc: "Architect seamless digital interfaces using React 19. Focus on performance, aesthetics, and user delight with high-fidelity components.",
     icon: Code2,
-    color: "from-rose-300 to-pink-500",
+    color: "linear-gradient(135deg, #fda4af, #f472b6)",
     skills: ['React 19 & Hooks', 'Motion Design', 'Performance Tuning', 'TypeScript Mastery'],
     image: "https://images.unsplash.com/photo-1547658719-da2b51169166?auto=format&fit=crop&q=80&w=800"
   },
@@ -39,7 +39,7 @@ const TRACKS = [
     title: "Experience Strategy",
     desc: "Bridge vision and reality. Learn the psychological principles that drive successful product design and elegant user journeys.",
     icon: Palette,
-    color: "from-pink-400 to-fuchsia-500",
+    color: "linear-gradient(135deg, #f472b6, #d946ef)",
     skills: ['User Research', 'Figma Systems', 'Prototyping', 'Accessibility'],
     image: "https://images.unsplash.com/photo-1586717791821-3f44a563eb4c?auto=format&fit=crop&q=80&w=800"
   },
@@ -48,7 +48,7 @@ const TRACKS = [
     title: "Core Infrastructure",
     desc: "Build the robust systems that power global applications. Learn scalability, data architecture, and secure cloud environments.",
     icon: Cpu,
-    color: "from-indigo-300 to-rose-400",
+    color: "linear-gradient(135deg, #a5b4fc, #fb7185)",
     skills: ['Node.js & Go', 'PostgreSQL', 'Cloud Architecture', 'API Security'],
     image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc48?auto=format&fit=crop&q=80&w=800"
   }
@@ -88,150 +88,103 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navItems = [
-    { name: 'About', href: '#about' },
-    { name: 'Tracks', href: '#tracks' },
-    { name: 'Architects', href: '#architects' },
-    { name: 'Benefits', href: '#benefits' }
-  ];
-
   return (
-    <nav className={`fixed w-full z-[100] transition-all duration-500 ${isScrolled ? 'py-4' : 'py-8'}`}>
-      <div className={`max-w-7xl mx-auto px-6 transition-all duration-500 ${isScrolled ? 'glass rounded-full shadow-lg max-w-5xl' : ''}`}>
-        <div className="flex justify-between items-center h-16">
-          <a href="#" className="flex items-center space-x-3 group">
-            <div className="w-12 h-12 bg-gradient-to-br from-pink-500 to-rose-500 rounded-2xl flex items-center justify-center text-white shadow-xl group-hover:rotate-12 transition-transform duration-500">
-              <Heart size={24} fill="currentColor" />
-            </div>
-            <span className="text-2xl font-serif font-bold tracking-tight text-gray-900 group-hover:text-pink-600 transition-colors">BloomTech</span>
-          </a>
-
-          <div className="hidden md:flex items-center space-x-12">
-            {navItems.map((item) => (
-              <a 
-                key={item.name} 
-                href={item.href} 
-                className="text-[11px] font-extrabold uppercase tracking-[0.2em] text-gray-500 hover:text-pink-600 transition-colors"
-              >
-                {item.name}
-              </a>
-            ))}
-            <button className="px-8 py-3 bg-gray-900 text-white text-[10px] font-black uppercase tracking-widest rounded-full hover:bg-pink-600 transition-all shadow-xl transform hover:-translate-y-0.5">
-              Join Cohort
-            </button>
+    <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
+      <div className="max-width navbar-container">
+        <a href="#" className="logo">
+          <div className="logo-icon">
+            <Heart size={20} fill="currentColor" />
           </div>
+          <span className="font-serif">BloomTech</span>
+        </a>
 
-          <button className="md:hidden text-gray-900 p-2" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
-            {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
-          </button>
+        <div className="nav-links">
+          <a href="#about" className="nav-link">About</a>
+          <a href="#tracks" className="nav-link">Tracks</a>
+          <a href="#architects" className="nav-link">Architects</a>
+          <a href="#benefits" className="nav-link">Benefits</a>
+          <button className="btn-nav">Join Cohort</button>
         </div>
-      </div>
 
-      <AnimatePresence>
-        {mobileMenuOpen && (
-          <motion.div 
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="md:hidden glass mx-6 mt-4 p-8 rounded-[2rem] flex flex-col space-y-6 text-center shadow-2xl"
-          >
-            {navItems.map((item) => (
-              <a 
-                key={item.name} 
-                href={item.href} 
-                onClick={() => setMobileMenuOpen(false)} 
-                className="text-gray-900 font-bold text-lg"
-              >
-                {item.name}
-              </a>
-            ))}
-            <button className="bg-pink-600 text-white py-4 rounded-xl font-bold">Apply Now</button>
-          </motion.div>
-        )}
-      </AnimatePresence>
+        <button className="mobile-toggle" style={{ display: 'none' }} onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+          <Menu size={28} />
+        </button>
+      </div>
     </nav>
   );
 };
 
-const Hero = () => {
-  return (
-    <section className="relative pt-40 pb-20 lg:pt-60 lg:pb-40 bg-[#FFF5F7] overflow-hidden">
-      <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-pink-100/50 to-transparent -z-10 blur-3xl"></div>
-      <div className="absolute -top-40 -left-40 w-[800px] h-[800px] bg-rose-200/30 rounded-full blur-[120px] -z-10 opacity-60"></div>
-      
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="flex flex-col lg:flex-row items-center gap-20">
-          <div className="flex-1 text-center lg:text-left">
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="inline-flex items-center gap-3 bg-white border border-pink-100 px-6 py-3 rounded-full text-pink-600 text-[10px] font-black tracking-[0.2em] uppercase mb-12 shadow-sm"
-            >
-              <Sparkles size={16} className="animate-spin-slow" />
-              Engineering Professionalism & Grace
-            </motion.div>
-            
-            <motion.h1 
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1, duration: 0.8 }}
-              className="text-6xl md:text-8xl font-serif font-bold text-gray-900 leading-[0.95] mb-10"
-            >
-              Bloom Into <br /><span className="gradient-text italic">Excellence</span>.
-            </motion.h1>
-            <motion.p 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              className="text-xl text-gray-500 mb-14 max-w-xl mx-auto lg:mx-0 leading-relaxed font-medium"
-            >
-              A premier internship initiative blending high-performance engineering with a sophisticated blossom-themed design. Elevate your career with our project architects.
-            </motion.p>
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
-              className="flex flex-col sm:flex-row items-center gap-8 justify-center lg:justify-start"
-            >
-              <button className="w-full sm:w-auto px-12 py-5 bg-pink-600 text-white rounded-full font-black uppercase text-xs tracking-[0.2em] shadow-2xl shadow-pink-200 hover:bg-pink-700 hover:-translate-y-1 transition-all flex items-center justify-center gap-3">
-                Apply Now <ChevronRight size={18} />
-              </button>
-              <button className="text-gray-900 font-black text-xs uppercase tracking-[0.2em] border-b-2 border-pink-200 hover:border-pink-600 transition-all py-1">
-                Our Methodology
-              </button>
-            </motion.div>
-          </div>
-
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, ease: "easeOut" }}
-            className="flex-1 relative"
-          >
-            <div className="relative z-10 rounded-[4rem] overflow-hidden border-[12px] border-white shadow-2xl aspect-[4/5] lg:aspect-auto">
-              <img 
-                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=800" 
-                alt="Architect Collaboration" 
-                className="w-full h-full lg:h-[650px] object-cover hover:scale-105 transition-transform duration-1000"
-              />
-            </div>
-            <div className="absolute -bottom-10 -left-10 bg-white p-8 rounded-[2.5rem] shadow-2xl z-20 border border-pink-50 hidden xl:block animate-float">
-              <div className="flex items-center gap-5">
-                <div className="w-14 h-14 bg-pink-50 rounded-2xl flex items-center justify-center text-pink-600">
-                  <Users size={28} />
-                </div>
-                <div>
-                  <div className="text-3xl font-serif font-bold text-gray-900 leading-none">250+</div>
-                  <div className="text-[9px] font-black text-gray-400 uppercase tracking-widest mt-1">Alumnae Network</div>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-        </div>
+const Hero = () => (
+  <section className="hero">
+    <div className="hero-blob"></div>
+    <div className="max-width hero-grid">
+      <div>
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="hero-badge"
+        >
+          <Sparkles size={16} className="animate-spin-slow" />
+          Engineering Professionalism & Grace
+        </motion.div>
+        
+        <motion.h1 
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.1, duration: 0.8 }}
+          className="hero-title font-serif"
+        >
+          Bloom Into <br /><span className="gradient-text italic">Excellence</span>.
+        </motion.h1>
+        
+        <motion.p 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+          className="hero-desc"
+        >
+          A premier internship initiative blending high-performance engineering with a sophisticated blossom-themed design. Elevate your career with our project architects.
+        </motion.p>
+        
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3 }}
+          className="hero-actions"
+        >
+          <button className="btn-cta">
+            Apply Now <ChevronRight size={18} />
+          </button>
+          <button style={{ background: 'none', border: 'none', fontWeight: 900, textTransform: 'uppercase', fontSize: '0.65rem', letterSpacing: '0.25em', cursor: 'pointer', borderBottom: '2px solid #FB7185', paddingBottom: '4px', color: '#111827' }}>
+            Our Methodology
+          </button>
+        </motion.div>
       </div>
-    </section>
-  );
-};
+
+      <motion.div 
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1 }}
+        className="hero-image-wrapper"
+      >
+        <img 
+          src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=800" 
+          alt="Architect Collaboration" 
+          className="hero-image"
+        />
+        <div className="floating-stat animate-float">
+          <div style={{ width: '3.5rem', height: '3.5rem', background: '#FFF5F7', borderRadius: '1.25rem', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#FB7185' }}>
+            <Users size={28} />
+          </div>
+          <div>
+            <div style={{ fontSize: '1.75rem', fontWeight: 700, color: '#111827', lineHeight: 1 }}>250+</div>
+            <div style={{ fontSize: '0.55rem', fontWeight: 900, color: '#9ca3af', textTransform: 'uppercase', letterSpacing: '0.15em', marginTop: '4px' }}>Alumnae Network</div>
+          </div>
+        </div>
+      </motion.div>
+    </div>
+  </section>
+);
 
 const TracksSection = () => {
   const [activeTab, setActiveTab] = useState(TRACKS[0].id);
@@ -239,89 +192,81 @@ const TracksSection = () => {
   const IconComponent = current.icon;
 
   return (
-    <section id="tracks" className="py-40 bg-white">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-24">
-          <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-5xl md:text-7xl font-serif font-bold text-gray-900 mb-8"
-          >
-            Our Engineering Tracks
-          </motion.h2>
-          
-          <div className="flex flex-wrap justify-center gap-3 mt-12 bg-pink-50/50 p-2 rounded-full w-fit mx-auto border border-pink-100/50">
-            {TRACKS.map((t) => (
-              <button
-                key={t.id}
-                onClick={() => setActiveTab(t.id)}
-                className={`px-10 py-3 rounded-full text-[10px] font-black uppercase tracking-[0.2em] transition-all duration-300 ${
-                  activeTab === t.id 
-                    ? 'bg-pink-600 text-white shadow-xl' 
-                    : 'text-gray-400 hover:text-gray-900'
-                }`}
-              >
-                {t.title.split(' ')[0]}
-              </button>
-            ))}
-          </div>
+    <section id="tracks" style={{ padding: '10rem 0', background: 'white' }}>
+      <div className="max-width">
+        <h2 className="font-serif" style={{ fontSize: '4rem', textAlign: 'center', marginBottom: '4rem', fontWeight: 800 }}>Our Engineering Tracks</h2>
+        
+        <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem', background: 'rgba(251, 113, 133, 0.05)', padding: '0.5rem', borderRadius: '9999px', width: 'fit-content', margin: '0 auto 5rem' }}>
+          {TRACKS.map((t) => (
+            <button
+              key={t.id}
+              onClick={() => setActiveTab(t.id)}
+              style={{
+                padding: '0.85rem 2.5rem',
+                borderRadius: '9999px',
+                border: 'none',
+                background: activeTab === t.id ? '#FB7185' : 'transparent',
+                color: activeTab === t.id ? 'white' : '#6b7280',
+                fontSize: '0.65rem',
+                fontWeight: 900,
+                textTransform: 'uppercase',
+                letterSpacing: '0.2em',
+                cursor: 'pointer',
+                transition: '0.3s ease',
+                boxShadow: activeTab === t.id ? '0 10px 20px rgba(251, 113, 133, 0.2)' : 'none'
+              }}
+            >
+              {t.title.split(' ')[0]}
+            </button>
+          ))}
         </div>
 
-        <div className="bg-white rounded-[3.5rem] p-10 lg:p-24 shadow-[0_50px_100px_-30px_rgba(0,0,0,0.05)] border border-pink-50">
-          <AnimatePresence mode="wait">
-            <motion.div 
-              key={activeTab}
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -20 }}
-              transition={{ duration: 0.5 }}
-              className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center"
-            >
-              <div className="order-2 lg:order-1">
-                <div className={`w-20 h-20 bg-gradient-to-br ${current.color} rounded-3xl flex items-center justify-center text-white mb-10 shadow-xl`}>
-                  <IconComponent size={32} />
-                </div>
-                <h3 className="text-4xl md:text-5xl font-serif font-bold text-gray-900 mb-8 leading-tight">{current.title}</h3>
-                <p className="text-xl text-gray-500 mb-10 leading-relaxed font-medium italic">
-                  "{current.desc}"
-                </p>
-                <div className="grid grid-cols-2 gap-6 mb-12">
-                  {current.skills.map((s) => (
-                    <div key={s} className="flex items-center gap-3 text-gray-700 font-bold text-sm">
-                      <Star size={14} className="text-pink-500" />
-                      {s}
-                    </div>
-                  ))}
-                </div>
-                <button className="inline-flex items-center gap-4 text-pink-600 font-black uppercase text-[10px] tracking-[0.3em] group">
-                  Explore Track <ArrowRight size={18} className="group-hover:translate-x-2 transition-transform" />
-                </button>
+        <AnimatePresence mode="wait">
+          <motion.div 
+            key={activeTab}
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -20 }}
+            className="track-card"
+          >
+            <div>
+              <div className="track-icon-container" style={{ background: current.color }}>
+                <IconComponent size={32} />
               </div>
-              <div className="order-1 lg:order-2">
-                <img 
-                  src={current.image} 
-                  className="rounded-[3rem] shadow-2xl w-full h-[550px] object-cover border-8 border-white" 
-                  alt={current.title} 
-                />
+              <h3 className="font-serif" style={{ fontSize: '3rem', marginBottom: '1.5rem', fontWeight: 800 }}>{current.title}</h3>
+              <p style={{ fontSize: '1.25rem', color: '#6b7280', fontStyle: 'italic', marginBottom: '2.5rem', fontWeight: 500 }}>"{current.desc}"</p>
+              
+              <div className="skill-grid">
+                {current.skills.map((s) => (
+                  <div key={s} className="skill-item">
+                    <Star size={14} style={{ color: '#FB7185' }} />
+                    {s}
+                  </div>
+                ))}
               </div>
-            </motion.div>
-          </AnimatePresence>
-        </div>
+              
+              <button style={{ color: '#BE185D', fontWeight: 900, textTransform: 'uppercase', fontSize: '0.65rem', letterSpacing: '0.3em', border: 'none', background: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                Explore Track <ArrowRight size={16} />
+              </button>
+            </div>
+            
+            <img src={current.image} alt={current.title} style={{ width: '100%', height: '550px', objectFit: 'cover', borderRadius: '3rem', border: '8px solid white', boxShadow: '0 30px 60px rgba(0,0,0,0.1)' }} />
+          </motion.div>
+        </AnimatePresence>
       </div>
     </section>
   );
 };
 
 const ArchitectsSection = () => (
-  <section id="architects" className="py-40 bg-[#FDF2F8]">
-    <div className="max-w-7xl mx-auto px-6 text-center">
-      <div className="mb-24">
-        <h2 className="text-5xl md:text-7xl font-serif font-bold text-gray-900 mb-8">Lead Project Architects</h2>
-        <p className="text-gray-400 text-lg font-medium tracking-widest uppercase">The visionaries behind BloomTech</p>
+  <section id="architects" style={{ padding: '10rem 0', background: '#FDF2F8' }}>
+    <div className="max-width">
+      <div style={{ textAlign: 'center', marginBottom: '6rem' }}>
+        <h2 className="font-serif" style={{ fontSize: '4rem', fontWeight: 800, marginBottom: '1.5rem' }}>Lead Project Architects</h2>
+        <p style={{ color: '#9ca3af', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.3em', fontSize: '0.8rem' }}>The visionaries behind BloomTech</p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '4rem' }}>
         {ENGINEERS.map((engineer, idx) => (
           <motion.div 
             key={engineer.name}
@@ -329,25 +274,21 @@ const ArchitectsSection = () => (
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: idx * 0.2 }}
-            className="group"
+            className="architect-card"
           >
-            <div className="relative mb-10 aspect-square overflow-hidden rounded-[3rem] shadow-2xl border-4 border-white">
-               <img src={engineer.img} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-110 group-hover:scale-100" alt={engineer.name} />
-               <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-10 text-left">
-                  <h4 className="text-2xl font-serif font-bold text-white">{engineer.name}</h4>
-                  <p className="text-pink-300 text-xs font-bold uppercase tracking-widest">{engineer.specialty}</p>
+            <div className="architect-image-container">
+               <img src={engineer.img} className="architect-image" alt={engineer.name} />
+               <div className="architect-overlay">
+                  <h4 className="font-serif" style={{ fontSize: '1.75rem', color: 'white', fontWeight: 700 }}>{engineer.name}</h4>
+                  <p style={{ color: '#FDA4AF', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.2em', fontSize: '0.65rem' }}>{engineer.specialty}</p>
                </div>
             </div>
-            <div className="text-center px-6">
-               <div className="text-[11px] font-black text-pink-600 uppercase tracking-[0.25em] mb-4">{engineer.role}</div>
-               <p className="text-gray-600 font-medium leading-relaxed italic mb-8">"{engineer.bio}"</p>
-               <div className="flex justify-center gap-6">
-                  <a href="#" className="p-4 bg-white rounded-2xl text-gray-400 hover:text-pink-600 transition-all shadow-sm">
-                    <Linkedin size={20} />
-                  </a>
-                  <a href="#" className="p-4 bg-white rounded-2xl text-gray-400 hover:text-pink-600 transition-all shadow-sm">
-                    <Twitter size={20} />
-                  </a>
+            <div style={{ padding: '0 1rem' }}>
+               <div style={{ color: '#BE185D', fontWeight: 900, textTransform: 'uppercase', letterSpacing: '0.25em', fontSize: '0.65rem', marginBottom: '1rem' }}>{engineer.role}</div>
+               <p style={{ color: '#4b5563', fontStyle: 'italic', marginBottom: '2.5rem', lineHeight: 1.8, fontWeight: 500 }}>"{engineer.bio}"</p>
+               <div style={{ display: 'flex', justifyContent: 'center', gap: '1.25rem' }}>
+                  <a href="#" style={{ padding: '1.15rem', background: 'white', borderRadius: '1.25rem', color: '#9ca3af', display: 'flex', boxShadow: '0 4px 6px -1px rgba(0,0,0,0.05)' }}><Linkedin size={18} /></a>
+                  <a href="#" style={{ padding: '1.15rem', background: 'white', borderRadius: '1.25rem', color: '#9ca3af', display: 'flex', boxShadow: '0 4px 6px -1px rgba(0,0,0,0.05)' }}><Twitter size={18} /></a>
                </div>
             </div>
           </motion.div>
@@ -358,68 +299,62 @@ const ArchitectsSection = () => (
 );
 
 const Footer = () => (
-  <footer className="bg-[#111827] text-gray-400 pt-32 pb-16">
-    <div className="max-w-7xl mx-auto px-6">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-24">
-        <div className="lg:col-span-1">
-          <div className="flex items-center space-x-4 mb-10">
-            <div className="w-12 h-12 bg-pink-600 rounded-2xl flex items-center justify-center text-white shadow-xl">
-              <Heart size={24} fill="currentColor" />
+  <footer className="footer">
+    <div className="max-width">
+      <div className="footer-grid">
+        <div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '2.5rem' }}>
+            <div style={{ width: '3.25rem', height: '3.25rem', background: '#BE185D', borderRadius: '1rem', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white' }}>
+              <Heart size={22} fill="currentColor" />
             </div>
-            <span className="text-3xl font-serif font-bold text-white tracking-tight">BloomTech</span>
+            <span className="font-serif" style={{ fontSize: '2rem', color: 'white', fontWeight: 700 }}>BloomTech</span>
           </div>
-          <p className="mb-10 text-gray-400 text-lg font-medium leading-relaxed">
-            The gold standard in technical internships. Redefining professional excellence for the digital era.
-          </p>
-          <div className="flex gap-5">
-             {[Instagram, Twitter, Linkedin, Github].map((Icon, idx) => (
-               <a key={idx} href="#" className="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center hover:bg-pink-600 hover:text-white transition-all border border-white/10">
-                 <Icon size={20} />
-               </a>
+          <p style={{ marginBottom: '3rem', color: '#9ca3af', fontSize: '1.15rem', lineHeight: 1.7 }}>The gold standard in technical internships. Redefining professional excellence for the digital era.</p>
+          <div style={{ display: 'flex', gap: '1.25rem' }}>
+             {[Instagram, Twitter, Linkedin, Github].map((Icon, i) => (
+               <a key={i} href="#" style={{ width: '3.25rem', height: '3.25rem', background: 'rgba(255,255,255,0.04)', borderRadius: '1rem', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid rgba(255,255,255,0.08)', color: '#9ca3af' }}><Icon size={18} /></a>
              ))}
           </div>
         </div>
 
         <div>
-          <h5 className="text-white font-black uppercase text-[10px] tracking-[0.3em] mb-10">Program</h5>
-          <ul className="space-y-6 text-sm font-bold">
-            <li><a href="#about" className="hover:text-pink-500 transition-colors">About Us</a></li>
-            <li><a href="#tracks" className="hover:text-pink-500 transition-colors">Curriculum</a></li>
-            <li><a href="#architects" className="hover:text-pink-500 transition-colors">Architects</a></li>
-            <li><a href="#benefits" className="hover:text-pink-500 transition-colors">Benefits</a></li>
-          </ul>
+          <h5 style={{ color: 'white', fontWeight: 900, textTransform: 'uppercase', letterSpacing: '0.3em', fontSize: '0.65rem', marginBottom: '2.5rem' }}>Program</h5>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+            <a href="#about" className="nav-link" style={{ fontSize: '0.85rem' }}>About Us</a>
+            <a href="#tracks" className="nav-link" style={{ fontSize: '0.85rem' }}>Curriculum</a>
+            <a href="#architects" className="nav-link" style={{ fontSize: '0.85rem' }}>Architects</a>
+            <a href="#benefits" className="nav-link" style={{ fontSize: '0.85rem' }}>Benefits</a>
+          </div>
         </div>
 
         <div>
-          <h5 className="text-white font-black uppercase text-[10px] tracking-[0.3em] mb-10">Resources</h5>
-          <ul className="space-y-6 text-sm font-bold">
-            <li><a href="#" className="hover:text-pink-500 transition-colors">Help Portal</a></li>
-            <li><a href="#" className="hover:text-pink-500 transition-colors">FAQ</a></li>
-            <li><a href="#" className="hover:text-pink-500 transition-colors">Privacy</a></li>
-            <li><a href="#" className="hover:text-pink-500 transition-colors">Legal</a></li>
-          </ul>
+          <h5 style={{ color: 'white', fontWeight: 900, textTransform: 'uppercase', letterSpacing: '0.3em', fontSize: '0.65rem', marginBottom: '2.5rem' }}>Resources</h5>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+            <a href="#" className="nav-link" style={{ fontSize: '0.85rem' }}>Help Portal</a>
+            <a href="#" className="nav-link" style={{ fontSize: '0.85rem' }}>FAQ</a>
+            <a href="#" className="nav-link" style={{ fontSize: '0.85rem' }}>Privacy</a>
+            <a href="#" className="nav-link" style={{ fontSize: '0.85rem' }}>Legal</a>
+          </div>
         </div>
 
         <div>
-          <h5 className="text-white font-black uppercase text-[10px] tracking-[0.3em] mb-10">Contact</h5>
-          <div className="space-y-8 text-sm font-bold">
-             <div className="flex gap-4 items-start">
-                <Mail size={20} className="text-pink-500 flex-shrink-0" />
-                <span>admissions@bloomtech.io</span>
-             </div>
-             <div className="flex gap-4 items-start">
-                <MapPin size={20} className="text-pink-500 flex-shrink-0" />
-                <span className="leading-relaxed">Douala - Logbessou</span>
-             </div>
+          <h5 style={{ color: 'white', fontWeight: 900, textTransform: 'uppercase', letterSpacing: '0.3em', fontSize: '0.65rem', marginBottom: '2.5rem' }}>Contact</h5>
+          <div style={{ display: 'flex', gap: '1rem', marginBottom: '2rem' }}>
+            <Mail size={20} style={{ color: '#FB7185' }} />
+            <span style={{ fontWeight: 700, color: '#f3f4f6' }}>admissions@bloomtech.io</span>
+          </div>
+          <div style={{ display: 'flex', gap: '1rem' }}>
+            <MapPin size={20} style={{ color: '#FB7185' }} />
+            <span style={{ fontWeight: 700, color: '#f3f4f6' }}>Douala - Logbessou</span>
           </div>
         </div>
       </div>
 
-      <div className="border-t border-white/5 pt-12 flex flex-col md:flex-row justify-between items-center text-[10px] font-black uppercase tracking-[0.3em] text-gray-500">
+      <div style={{ borderTop: '1px solid rgba(255,255,255,0.05)', paddingTop: '3rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '0.65rem', fontWeight: 900, textTransform: 'uppercase', letterSpacing: '0.3em', color: '#6b7280' }}>
         <p>© {new Date().getFullYear()} BloomTech. Curated by Lead Architects.</p>
-        <div className="flex gap-8 mt-6 md:mt-0">
-           <a href="#" className="hover:text-white transition-colors">Terms</a>
-           <a href="#" className="hover:text-white transition-colors">Accessibility</a>
+        <div style={{ display: 'flex', gap: '2.5rem' }}>
+           <a href="#" style={{ color: '#6b7280', textDecoration: 'none' }}>Terms</a>
+           <a href="#" style={{ color: '#6b7280', textDecoration: 'none' }}>Accessibility</a>
         </div>
       </div>
     </div>
@@ -427,29 +362,29 @@ const Footer = () => (
 );
 
 const App = () => (
-  <div className="bg-[#FDF2F8] selection:bg-pink-100 selection:text-pink-600 min-h-screen">
+  <div style={{ background: '#FDF2F8' }}>
     <Navbar />
     <Hero />
     
-    <section id="about" className="py-40 bg-white relative">
-      <div className="max-w-7xl mx-auto px-6 text-center">
+    <section id="about" style={{ padding: '10rem 0', background: 'white' }}>
+      <div className="max-width" style={{ textAlign: 'center' }}>
         <motion.div 
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          className="max-w-4xl mx-auto"
+          style={{ maxWidth: '950px', margin: '0 auto' }}
         >
-          <h2 className="text-4xl md:text-6xl font-serif font-bold text-gray-900 leading-[1.2] mb-10">
-            "Technical brilliance is mandatory; <span className="text-pink-600 italic">design elegance</span> is what makes it professional."
+          <h2 className="font-serif" style={{ fontSize: '3.5rem', lineHeight: 1.2, marginBottom: '3rem', fontWeight: 800 }}>
+            "Technical brilliance is mandatory; <span style={{ color: '#BE185D', fontStyle: 'italic' }}>design elegance</span> is what makes it professional."
           </h2>
-          <div className="flex items-center justify-center gap-6 mb-24">
-             <div className="w-12 h-0.5 bg-pink-100"></div>
-             <p className="text-[10px] font-black uppercase tracking-[0.4em] text-gray-400">The Bloom Philosophy</p>
-             <div className="w-12 h-0.5 bg-pink-100"></div>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '2rem', marginBottom: '7rem' }}>
+             <div style={{ height: '2px', width: '4rem', background: '#FDF2F8' }}></div>
+             <p style={{ fontSize: '0.65rem', fontWeight: 900, textTransform: 'uppercase', letterSpacing: '0.45em', color: '#9ca3af' }}>The Bloom Philosophy</p>
+             <div style={{ height: '2px', width: '4rem', background: '#FDF2F8' }}></div>
           </div>
         </motion.div>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '3rem' }}>
            {[
              { title: "Rigorous Training", icon: CheckCircle2, desc: "A curriculum designed to challenge even the most ambitious technical minds." },
              { title: "Real-world SDLC", icon: Layers, desc: "Experience the full lifecycle from conceptualization to global production." },
@@ -461,13 +396,13 @@ const App = () => (
                whileInView={{ opacity: 1, y: 0 }}
                viewport={{ once: true }}
                transition={{ delay: i * 0.1 }}
-               className="p-12 rounded-[3rem] bg-pink-50/20 border border-pink-100 hover:bg-white hover:shadow-2xl transition-all duration-500"
+               style={{ padding: '4rem 3rem', borderRadius: '3.5rem', background: 'rgba(253, 242, 248, 0.25)', border: '1px solid #FDF2F8', transition: '0.4s ease' }}
              >
-               <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-pink-600 mb-8 shadow-sm">
-                 <item.icon size={28} />
+               <div style={{ width: '4rem', height: '4rem', background: 'white', borderRadius: '1.25rem', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#BE185D', marginBottom: '2.5rem', boxShadow: '0 10px 15px -3px rgba(0,0,0,0.05)' }}>
+                 <item.icon size={30} />
                </div>
-               <h4 className="text-2xl font-bold text-gray-900 mb-4">{item.title}</h4>
-               <p className="text-gray-500 font-medium leading-relaxed">{item.desc}</p>
+               <h4 style={{ fontSize: '1.75rem', fontWeight: 800, marginBottom: '1.25rem' }}>{item.title}</h4>
+               <p style={{ color: '#6b7280', fontWeight: 500, lineHeight: 1.8 }}>{item.desc}</p>
              </motion.div>
            ))}
         </div>
@@ -477,72 +412,73 @@ const App = () => (
     <TracksSection />
     <ArchitectsSection />
     
-    <section id="benefits" className="py-40 bg-white">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
+    <section id="benefits" style={{ padding: '10rem 0', background: 'white' }}>
+      <div className="max-width">
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(450px, 1fr))', gap: '8rem', alignItems: 'center' }}>
           <motion.div 
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-5xl md:text-7xl font-serif font-bold text-gray-900 mb-16 leading-[1.1]">
-              Experience <br /><span className="text-pink-600 italic">Prestige</span> <br />in Every Line.
+            <h2 className="font-serif" style={{ fontSize: '5rem', lineHeight: 1.1, marginBottom: '4rem', fontWeight: 800 }}>
+              Experience <br /><span style={{ color: '#BE185D', fontStyle: 'italic' }}>Prestige</span> <br />in Every Line.
             </h2>
-            <div className="space-y-12">
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '3.5rem' }}>
               {[
                 { title: "Architect Mentorship", icon: Award, desc: "Personalized guidance from our lead architects to refine your professional presence." },
                 { title: "Premium Placement", icon: Globe, desc: "Exclusive access to a global network of high-tier technical placements." },
                 { title: "System Responsibility", icon: Layers, desc: "Real-world SDLC responsibility on high-scale architectural decisions." }
               ].map((b, i) => (
-                <div key={i} className="flex gap-8 items-start">
-                  <div className="w-16 h-16 bg-pink-50 rounded-2xl flex items-center justify-center flex-shrink-0 text-pink-500 border border-pink-100">
-                    <b.icon size={28} />
+                <div key={i} style={{ display: 'flex', gap: '2.5rem' }}>
+                  <div style={{ width: '4.5rem', height: '4.5rem', background: '#FFF1F2', borderRadius: '1.5rem', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, color: '#FB7185', border: '1px solid #FFE4E6' }}>
+                    <b.icon size={30} />
                   </div>
                   <div>
-                    <h4 className="text-2xl font-bold text-gray-900 mb-2">{b.title}</h4>
-                    <p className="text-gray-500 text-lg font-medium leading-relaxed">{b.desc}</p>
+                    <h4 style={{ fontSize: '1.75rem', fontWeight: 800, marginBottom: '0.75rem' }}>{b.title}</h4>
+                    <p style={{ color: '#6b7280', fontSize: '1.15rem', fontWeight: 500, lineHeight: 1.7 }}>{b.desc}</p>
                   </div>
                 </div>
               ))}
             </div>
           </motion.div>
-          <div className="relative">
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              className="rounded-[4rem] overflow-hidden shadow-2xl aspect-[3/4]"
-            >
-              <img 
-                src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&q=80&w=800" 
-                className="w-full h-full object-cover" 
-                alt="Engineering Excellence" 
-              />
-            </motion.div>
-          </div>
+          
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            style={{ borderRadius: '4.5rem', overflow: 'hidden', boxShadow: '0 60px 120px -30px rgba(0,0,0,0.12)', aspectRatio: '3/4', border: '12px solid white' }}
+          >
+            <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&q=80&w=800" style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="Engineering Excellence" />
+          </motion.div>
         </div>
       </div>
     </section>
 
-    <section className="py-40">
-      <div className="max-w-6xl mx-auto px-6">
+    <section style={{ padding: '8rem 0' }}>
+      <div className="max-width" style={{ maxWidth: '1100px' }}>
          <motion.div 
            initial={{ opacity: 0, y: 30 }}
            whileInView={{ opacity: 1, y: 0 }}
            viewport={{ once: true }}
-           className="bg-gray-900 rounded-[4rem] p-16 md:p-32 text-center text-white relative overflow-hidden shadow-3xl"
+           style={{ 
+             background: '#111827', 
+             borderRadius: '4.5rem', 
+             padding: '8rem 5rem', 
+             textAlign: 'center', 
+             color: 'white', 
+             position: 'relative', 
+             overflow: 'hidden', 
+             boxShadow: '0 60px 120px -20px rgba(0,0,0,0.25)' 
+           }}
          >
-           <div className="absolute top-0 right-0 w-1/2 h-full bg-pink-600/10 -z-10 blur-3xl"></div>
-           <h2 className="text-5xl md:text-8xl font-serif font-bold mb-12 leading-tight">Your Legacy <br /><span className="gradient-text italic opacity-90">Starts Here</span>.</h2>
-           <p className="text-xl text-gray-400 mb-16 max-w-xl mx-auto font-medium leading-relaxed">
+           <h2 className="font-serif" style={{ fontSize: '5.5rem', marginBottom: '3rem', lineHeight: 1.1, fontWeight: 800 }}>Your Legacy <br /><span className="gradient-text italic opacity-95">Starts Here</span>.</h2>
+           <p style={{ fontSize: '1.35rem', color: '#9ca3af', marginBottom: '5rem', maxWidth: '650px', margin: '0 auto 5rem', fontWeight: 500, lineHeight: 1.8 }}>
              Join our next cohort of architects. Applications for 2025 are now open for evaluation.
            </p>
-           <div className="flex flex-col sm:flex-row gap-8 justify-center items-center">
-             <button className="px-12 py-6 bg-pink-600 text-white rounded-full font-black uppercase tracking-[0.2em] text-[10px] hover:scale-105 transition-transform shadow-2xl">
-                Apply for Internship
-             </button>
-             <button className="flex items-center gap-3 font-black uppercase text-[10px] tracking-[0.2em] border-b border-white/20 pb-2 hover:border-pink-500 transition-all">
-                Selection Process <ArrowRight size={16} />
+           <div style={{ display: 'flex', gap: '2.5rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+             <button className="btn-cta" style={{ padding: '1.5rem 4rem', fontSize: '0.85rem' }}>Apply for Internship</button>
+             <button style={{ background: 'none', border: 'none', color: 'white', fontWeight: 900, textTransform: 'uppercase', fontSize: '0.75rem', letterSpacing: '0.3em', cursor: 'pointer', borderBottom: '2px solid rgba(255,255,255,0.2)', paddingBottom: '0.75rem', display: 'flex', alignItems: 'center', gap: '0.85rem' }}>
+                Selection Process <ArrowRight size={18} />
              </button>
            </div>
          </motion.div>
